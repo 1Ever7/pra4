@@ -7,7 +7,7 @@
     <script>
     // Redirigir a la página "index.jsp" después de 2 segundos
     setTimeout(function() {
-        window.location.href = "index.jsp";
+        window.location.href = "post";
     }, 2000); // 2000 milisegundos = 2 segundos
 </script>
 

@@ -70,7 +70,7 @@ public class post extends HttpServlet {
                     
                        case "insertar":
                 
-                        insertarPost(request, dao);
+                        insertarPost(request,response, dao);
                     
                 
                     break;
@@ -80,10 +80,10 @@ public class post extends HttpServlet {
                    verPost(request, response, dao);
                     break;
                 case "actualizar":
-                    actualizarPost(request, dao);
+                    actualizarPost(request,response, dao);
                     break;
                 case "eliminar":
-                   eliminarPost(request, dao);
+                   eliminarPost(request,response, dao);
                     break;
                 
                 default:
@@ -104,7 +104,7 @@ response.sendRedirect("post");
     
     
     // Método para insertar un post
-private void insertarPost(HttpServletRequest request, postDAO dao) 
+private void insertarPost(HttpServletRequest request,HttpServletResponse response, postDAO dao) 
         throws ClassNotFoundException, SQLException, IOException{
     try {
         // Obtener los parámetros del formulario
@@ -122,18 +122,18 @@ private void insertarPost(HttpServletRequest request, postDAO dao)
         dao.insert(nuevoPost);
         
         // Redireccionar a una página de éxito o mostrar un mensaje de éxito
-       // response.sendRedirect("nuevo.jsp");
+        response.sendRedirect("exito.jsp");
         
     } catch (Exception e) {
         // Manejar cualquier excepción que pueda ocurrir durante la inserción
         e.printStackTrace();
         // Redireccionar a una página de error o mostrar un mensaje de error
-       // response.sendRedirect("error.jsp");
+        response.sendRedirect("error.jsp");
     }
 }
 
 // Método para actualizar un post
-private void actualizarPost(HttpServletRequest request, postDAO dao) 
+private void actualizarPost(HttpServletRequest request,HttpServletResponse response, postDAO dao) 
         throws IOException, ServletException {
     try {
         // Obtener los parámetros del formulario
@@ -153,18 +153,18 @@ private void actualizarPost(HttpServletRequest request, postDAO dao)
         dao.update(postActualizado);
         
         // Redireccionar a una página de éxito o mostrar un mensaje de éxito
-       //response.sendRedirect("exito.jsp");
+       response.sendRedirect("exito.jsp");
     } catch (Exception e) {
         // Manejar cualquier excepción que pueda ocurrir durante la actualización
         e.printStackTrace();
         // Redireccionar a una página de error o mostrar un mensaje de error
-        //response.sendRedirect("error.jsp");
+        response.sendRedirect("error.jsp");
         throw new ServletException("Error al actualizar ");
     }
 }
 
 // Método para eliminar un post
-private void eliminarPost(HttpServletRequest request, postDAO dao) throws IOException {
+private void eliminarPost(HttpServletRequest request, HttpServletResponse response, postDAO dao) throws IOException {
     try {
         // Obtener el ID del post a eliminar
         int id = Integer.parseInt(request.getParameter("id"));
@@ -173,12 +173,12 @@ private void eliminarPost(HttpServletRequest request, postDAO dao) throws IOExce
         dao.delete(id);
         
         // Redireccionar a una página de éxito o mostrar un mensaje de éxito
-        //response.sendRedirect("exito.jsp");
+        response.sendRedirect("exito.jsp");
     } catch (Exception e) {
         // Manejar cualquier excepción que pueda ocurrir durante la eliminación
         e.printStackTrace();
         // Redireccionar a una página de error o mostrar un mensaje de error
-        //response.sendRedirect("error.jsp");
+        response.sendRedirect("error.jsp");
     }
 }
 

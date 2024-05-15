@@ -1,0 +1,9 @@
+com\emergentes\prac_4\conexionDB.class
+servlet\post.class
+com\my\emergentes2\DAOtabla\DAOtabal.class
+com\my\emergentes2\DAOtabla\postDAO.class
+com\my\emergentes2\objetos\usuario.class
+com\my\emergentes2\DAOtabla\post1.class
+com\my\emergentes2\DAOtabla\tablaDAOimpl.class
+com\my\emergentes2\objetos\post2.class
+servlet\usuario.class
